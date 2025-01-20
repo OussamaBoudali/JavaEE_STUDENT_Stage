@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de Stages</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    /* Menu fixe à gauche */
+    .sidebar {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #333;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: block;
+    }
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+    /* Contenu de la page */
+    .content {
+      margin-left: 200px;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    /* Responsive: ajuster le menu pour les écrans plus petits */
+    @media screen and (max-width: 600px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+      .sidebar a { float: left; }
+      .content { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+<!-- Menu fixe à gauche -->
+<div class="sidebar">
+  <h2 style="color: white; text-align: center;">Gestion de Stages</h2>
+  <a href="/">Home</a>
+  <a href="/students">View Students</a>
+  <a href="/students/add">Add Student</a>
+  <a href="/stages">View Stages</a>
+  <a href="/stages/add">Add Stage</a>
+</div>
+
+<!-- Contenu principal de la page -->
+<div class="content">
+  <!-- Le contenu spécifique à chaque page sera injecté ici -->
+  <div th:replace="${body}"></div>
+</div>
+</body>
+</html>

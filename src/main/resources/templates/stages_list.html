@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Stages</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Liste des Stages</h1>
+</header>
+
+<div class="navbar">
+    <a href="/students">Étudiants</a>
+    <a href="/stages">Stages</a>
+    <a href="/stages/add">Ajouter un Stage</a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Date de début</th>
+        <th>Date de fin</th>
+        <th>Entreprise</th>
+        <th>Étudiant</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stage : ${stages}">
+        <td th:text="${stage.id}"></td>
+        <td th:text="${stage.title}"></td>
+        <td th:text="${stage.description}"></td>
+        <td th:text="${stage.startDate}"></td>
+        <td th:text="${stage.endDate}"></td>
+        <td th:text="${stage.company}"></td>
+        <td th:text="${stage.student != null ? stage.student.name : 'Étudiant non trouvé'}"></td>
+        <td>
+            <a href="#" th:href="@{/stages/edit/{id}(id=${stage.id})}">Modifier</a>
+            <a href="#" th:href="@{/stages/delete/{id}(id=${stage.id})}">Supprimer</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

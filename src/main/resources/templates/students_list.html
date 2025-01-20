@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Étudiants</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Lien vers le fichier CSS -->
+</head>
+<body>
+<header>
+    <h1>Liste des Étudiants</h1>
+</header>
+
+<div class="main-container">
+    <div class="navbar">
+        <a href="/students" class="active">Étudiants</a>
+        <a href="/students/add">Ajouter un Étudiant</a>
+        <a href="/stages">Stages</a>
+    </div>
+
+    <div class="list-container">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Âge</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.email}"></td>
+                <td th:text="${student.age}"></td>
+                <td>
+                    <a href="#" th:href="@{/students/edit/{id}(id=${student.id})}">Modifier</a>
+                    <a href="#" th:href="@{/students/delete/{id}(id=${student.id})}">Supprimer</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
